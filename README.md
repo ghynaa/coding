@@ -1,2 +1,2 @@
-# coding
-untuk nilai 
+coding nilai
+file readme ghyna
