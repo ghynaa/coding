@@ -1,0 +1,2 @@
+# coding
+untuk nilai 
