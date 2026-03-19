@@ -1,154 +1,174 @@
+import { useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import useEmblaCarousel from 'embla-carousel-react';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'Platform e-commerce modern dengan fitur lengkap termasuk payment gateway, inventory management, dan analytics dashboard.',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    image: '🛒',
-    color: 'from-blue-500/20 to-cyan-500/20',
-    github: '#',
-    demo: '#',
+    title: '🎬 Enchanto',
+    description:
+      'Mengisahkan keluarga Madrigal dengan kekuatan sihir unik di pegunungan Kolombia, kecuali Mirabel yang harus menyelamatkan keajaiban mereka.',
+    image: '/Enchanto.jpg',
+    color: 'from-emerald-400 via-green-500 to-lime-400',
   },
   {
-    title: 'Learning Management System',
-    description: 'Platform pembelajaran online dengan video streaming, quiz interaktif, dan progress tracking.',
-    tags: ['Next.js', 'TypeScript', 'MongoDB', 'WebRTC'],
-    image: '📚',
-    color: 'from-purple-500/20 to-pink-500/20',
-    github: '#',
-    demo: '#',
+    title: '❄️ Frozen',
+    description:
+      'Perjuangan Anna mencari Elsa yang kekuatannya membekukan Arendelle dalam musim dingin abadi. Sebuah kisah kasih sayang sejati.',
+    image: '/FROZEN.jpg',
+    color: 'from-cyan-300 via-emerald-300 to-teal-400',
   },
   {
-    title: 'Social Media Dashboard',
-    description: 'Dashboard analytics untuk social media dengan real-time data visualization dan reporting.',
-    tags: ['React', 'D3.js', 'Firebase', 'Tailwind'],
-    image: '📊',
-    color: 'from-orange-500/20 to-red-500/20',
-    github: '#',
-    demo: '#',
+    title: '👻 Insidious',
+    description:
+      'Sepasang suami istri berusaha menyelamatkan putra mereka yang jiwanya terjebak di dimensi roh jahat bernama "The Further".',
+    image: '/Insidious.jpg',
+    color: 'from-green-600 via-emerald-800 to-slate-900',
   },
   {
-    title: 'AI Content Generator',
-    description: 'Tool untuk generate konten menggunakan AI dengan integrasi berbagai model language.',
-    tags: ['Python', 'FastAPI', 'OpenAI', 'React'],
-    image: '🤖',
-    color: 'from-green-500/20 to-teal-500/20',
-    github: '#',
-    demo: '#',
+    title: '🩻 The Trauma Code',
+    description:
+      'Kisah Baek Kang-hyuk, dokter bedah jenius yang eksentrik, dalam memimpin pusat trauma di rumah sakit universitas.',
+    image: '/The Trauma code Heroes on call.jpg',
+    color: 'from-teal-400 via-green-400 to-emerald-500',
   },
   {
-    title: 'Video Editing Tutorial',
-    description: 'Seri tutorial video editing dengan 100+ episode dan 10k+ subscribers.',
-    tags: ['Premiere Pro', 'After Effects', 'YouTube'],
-    image: '🎬',
-    color: 'from-red-500/20 to-orange-500/20',
-    isContent: true,
-    youtube: '#',
+    title: '🌊🐚 Moana 2',
+    description:
+      'Moana kembali berlayar menjelajahi lautan luas dalam petualangan berani melintasi samudra yang penuh misteri.',
+    image: '/moana.jpg',
+    color: 'from-emerald-300 via-teal-500 to-cyan-500',
   },
   {
-    title: 'Coding Tips & Tricks',
-    description: 'Konten tips programming dan best practices untuk developer Indonesia.',
-    tags: ['Instagram', 'TikTok', 'YouTube Shorts'],
-    image: '💡',
-    color: 'from-cyan-500/20 to-blue-500/20',
-    isContent: true,
-    youtube: '#',
+    title: '🔪 Mercy For None',
+    description:
+      'Seorang mantan gangster legendaris kembali ke dunia bawah tanah untuk membalas dendam atas kematian misterius adiknya.',
+    image: '/Mercy For None poster.jpg',
+    color: 'from-green-900 via-emerald-700 to-green-500',
   },
 ];
 
 export default function ProjectsSection() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: 'start',
+    skipSnaps: false,
+  });
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const interval = setInterval(() => {
+      emblaApi.scrollNext();
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [emblaApi]);
+
   return (
-    <section id="projects" className="py-20 md:py-32 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section
+      id="projects"
+      className="py-24 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-950 via-slate-950 to-black overflow-hidden relative"
+    >
+      {/* Decorative Background Glows */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/10 blur-[120px] rounded-full" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-500/10 blur-[120px] rounded-full" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        
+        {/* HEADER */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <span className="text-primary font-medium mb-2 block">Portfolio</span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Projects &amp; Karya
+          <span className="text-emerald-400 font-medium tracking-widest uppercase text-sm">Curated Collection</span>
+          <h2 className="text-4xl md:text-6xl font-extrabold text-white mt-3 tracking-tight">
+            My Ultimate <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-lime-300">Watch</span> 🍿
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
+        {/* CAROUSEL */}
+        <div className="relative group/carousel">
+          <div ref={emblaRef} className="cursor-grab active:cursor-grabbing">
+            <div className="flex -ml-6">
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  className="pl-6 flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
+                >
+                  <motion.div 
+                    whileHover={{ y: -10 }}
+                    className="relative p-6 rounded-3xl bg-emerald-950/20 border border-emerald-500/10 backdrop-blur-md overflow-hidden group"
+                  >
+                    {/* Inner Glow Effect */}
+                    <div className={`absolute -inset-2 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500`} />
+
+                    <div className="relative">
+                      {/* IMAGE CONTAINER */}
+                      <div className={`relative p-[2px] rounded-2xl bg-gradient-to-b ${project.color} overflow-hidden shadow-2xl shadow-emerald-900/20`}>
+                        <div className="aspect-[2/3] w-full rounded-2xl overflow-hidden bg-slate-900">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                          {/* Play Overlay */}
+                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div className="w-14 h-14 rounded-full bg-emerald-500 flex items-center justify-center text-white scale-75 group-hover:scale-100 transition-transform duration-300 shadow-xl shadow-emerald-500/50">
+                              <Play fill="white" className="ml-1" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* TEXT CONTENT */}
+                      <div className="mt-6">
+                        <h3 className="font-bold text-2xl text-emerald-50 text-shadow-sm">
+                          {project.title}
+                        </h3>
+                        <p className="text-emerald-100/60 mt-3 text-sm leading-relaxed line-clamp-3">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      {/* DECORATIVE LINE */}
+                      <div className={`h-1 w-12 mt-6 rounded-full bg-gradient-to-r ${project.color}`} />
+                    </div>
+                  </motion.div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* NAVIGATION BUTTONS */}
+          <div className="flex justify-center gap-4 mt-12">
+            <Button
+              onClick={scrollPrev}
+              variant="outline"
+              size="icon"
+              className="rounded-full border-emerald-500/30 bg-emerald-950/50 text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all shadow-lg"
             >
-              <div className="h-full p-6 glass rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2">
-                <div className={`aspect-video rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br ${project.color}`}>
-                  <span className="text-6xl">{project.image}</span>
-                </div>
-                
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    {project.isContent && (
-                      <span className="px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary font-medium">
-                        Content
-                      </span>
-                    )}
-                    <h3 className="font-display text-lg font-bold group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                  </div>
-                  
-                  <p className="text-sm text-muted-foreground line-clamp-2">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-1 text-xs rounded-md bg-secondary text-secondary-foreground"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="flex gap-2 pt-2">
-                    {project.github && (
-                      <Button variant="outline" size="sm" className="rounded-full" asChild>
-                        <a href={project.github}>
-                          <Github className="h-4 w-4 mr-1" />
-                          Code
-                        </a>
-                      </Button>
-                    )}
-                    {project.demo && (
-                      <Button size="sm" className="rounded-full" asChild>
-                        <a href={project.demo}>
-                          <ExternalLink className="h-4 w-4 mr-1" />
-                          Demo
-                        </a>
-                      </Button>
-                    )}
-                    {project.youtube && (
-                      <Button size="sm" className="rounded-full" asChild>
-                        <a href={project.youtube}>
-                          <Play className="h-4 w-4 mr-1" />
-                          Watch
-                        </a>
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              <ChevronLeft className="w-6 h-6" />
+            </Button>
+            <Button
+              onClick={scrollNext}
+              variant="outline"
+              size="icon"
+              className="rounded-full border-emerald-500/30 bg-emerald-950/50 text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all shadow-lg"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>

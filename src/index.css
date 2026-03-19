@@ -21,8 +21,8 @@
     --secondary: 220 15% 92%;
     --secondary-foreground: 220 20% 20%;
 
-    --muted: 220 15% 95%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 200 50% 50%;
+    --muted-foreground: 200 50% 40%;
 
     --accent: 175 80% 45%;
     --accent-foreground: 0 0% 100%;
@@ -37,11 +37,11 @@
     --radius: 0.75rem;
 
     /* Custom tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(175 80% 40%), hsl(200 80% 50%));
-    --gradient-hero: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(210 25% 94%) 100%);
-    --shadow-glow: 0 0 40px hsl(175 80% 40% / 0.3);
-    --shadow-card: 0 4px 20px hsl(220 20% 10% / 0.08);
-    --shadow-card-hover: 0 8px 30px hsl(220 20% 10% / 0.12);
+    --gradient-primary: linear-gradient(135deg, hsl(180, 65%, 40%), hsl(246, 62%, 73%));
+    --navbg:linear-gradient(180deg, hsl(184, 71%, 23%) 0%, hsl(189, 55%, 81%) 100%);
+    --shadow-glow: 0 0 40px hsla(175, 80%, 40%, 0);
+    --shadow-card: 0 4px 20px hsla(220, 24%, 73%, 0.007);
+    --shadow-card-hover: 0 8px 30px hsla(188, 57%, 75%, 0);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -69,8 +69,8 @@
     --secondary: 220 20% 18%;
     --secondary-foreground: 210 20% 90%;
 
-    --muted: 220 20% 15%;
-    --muted-foreground: 220 15% 60%;
+    --muted: 200 40% 50%;
+    --muted-foreground: 200 40% 85%;
 
     --accent: 175 80% 50%;
     --accent-foreground: 220 25% 6%;
@@ -83,11 +83,11 @@
     --ring: 175 80% 50%;
 
     /* Custom tokens dark */
-    --gradient-primary: linear-gradient(135deg, hsl(175 80% 50%), hsl(200 80% 60%));
-    --gradient-hero: linear-gradient(180deg, hsl(220 25% 6%) 0%, hsl(220 30% 10%) 100%);
-    --shadow-glow: 0 0 60px hsl(175 80% 50% / 0.4);
-    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
-    --shadow-card-hover: 0 8px 30px hsl(175 80% 50% / 0.15);
+    --gradient-primary: linear-gradient(135deg, hsl(175, 87%, 49%), hsl(206, 78%, 44%));
+    --navbg: linear-gradient(180deg, hsl(182, 59%, 35%) 0%, hsl(0, 0%, 3%) 100%);
+    --shadow-glow: 0 0 60px hsla(192, 80%, 50%, 0.4);
+    --shadow-card: 0 4px 20px hsla(180, 3%, 93%, 0);
+    --shadow-card-hover: 0 8px 30px hsla(174, 34%, 37%, 0.589);
 
     --sidebar-background: 220 25% 8%;
     --sidebar-foreground: 210 20% 90%;
@@ -116,11 +116,13 @@
 }
 
 @layer components {
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-primary);
+  .bg-navbg {
+    background: var(--navbg)
   }
-
+  .teks-gradient {
+    @apply bg-clip-text text-transparent ; 
+     background-image: var(--gradient-primary);
+  }
   .bg-gradient-hero {
     background: var(--gradient-hero);
   }
