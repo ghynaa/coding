@@ -120,7 +120,7 @@ export default function ContactSection() {
           className="text-center mb-16"
         >
           <span className="text-primary font-medium mb-2 block uppercase tracking-widest">Kontak</span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Hubungi Saya</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">contact me 🫨</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
 
@@ -134,7 +134,7 @@ export default function ContactSection() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-4">"Say hello to your next favorite collaborator!🌸</h3>
+              <h3 className="text-2xl font-bold mb-4">Say hello to your next favorite collaborator!🌸</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Kalau kamu lagi cari temen diskusi yang seru atau butuh sentuhan kreatif buat project kamu, I'm only one message away✨.
               </p>

@@ -45,7 +45,7 @@ export default function HeroSection() {
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <span className="text-xs font-bold text-primary">Web Developer</span>
+                <span className="text-xs font-bold text-primary">Code, Coffee, & Study ☕✨</span>
               </motion.div>
             </div>
           </motion.div>
@@ -63,7 +63,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                👋 Selamat datang di portfolio saya
+                Hii! Glad you’re here👀
               </motion.span>
             </motion.div>
 

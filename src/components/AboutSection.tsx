@@ -73,8 +73,9 @@ export default function AboutSection() {
 
               {/* Badge Pengalaman */}
               <div className="absolute -bottom-6 -right-6 p-4 glass rounded-xl shadow-card border border-white/20">
-                <p className="font-display font-bold text-2xl text-primary">9+ Tahun</p>
-                <p className="text-sm text-muted-foreground font-medium">Pengalaman belajar</p>
+                <p className="font-display font-bold text-2xl text-primary"></p>
+                <p className="text-sm text-muted-foreground font-medium">☁️˙𐃷˙☁️
+</p>
               </div>
             </motion.div>
 
