@@ -7,43 +7,37 @@ import useEmblaCarousel from 'embla-carousel-react';
 const projects = [
   {
     title: '🎬 Enchanto',
-    description:
-      'Mengisahkan keluarga Madrigal dengan kekuatan sihir unik di pegunungan Kolombia, kecuali Mirabel yang harus menyelamatkan keajaiban mereka.',
+    description: 'Mengisahkan keluarga Madrigal dengan kekuatan sihir unik di pegunungan Kolombia, kecuali Mirabel yang harus menyelamatkan keajaiban mereka.',
     image: '/Enchanto.jpg',
     color: 'from-emerald-400 via-green-500 to-lime-400',
   },
   {
     title: '❄️ Frozen',
-    description:
-      'Perjuangan Anna mencari Elsa yang kekuatannya membekukan Arendelle dalam musim dingin abadi. Sebuah kisah kasih sayang sejati.',
+    description: 'Perjuangan Anna mencari Elsa yang kekuatannya membekukan Arendelle dalam musim dingin abadi. Sebuah kisah kasih sayang sejati.',
     image: '/FROZEN.jpg',
     color: 'from-cyan-300 via-emerald-300 to-teal-400',
   },
   {
     title: '👻 Insidious',
-    description:
-      'Sepasang suami istri berusaha menyelamatkan putra mereka yang jiwanya terjebak di dimensi roh jahat bernama "The Further".',
+    description: 'Sepasang suami istri berusaha menyelamatkan putra mereka yang jiwanya terjebak di dimensi roh jahat bernama "The Further".',
     image: '/Insidious.jpg',
     color: 'from-green-600 via-emerald-800 to-slate-900',
   },
   {
     title: '🩻 The Trauma Code',
-    description:
-      'Kisah Baek Kang-hyuk, dokter bedah jenius yang eksentrik, dalam memimpin pusat trauma di rumah sakit universitas.',
+    description: 'Kisah Baek Kang-hyuk, dokter bedah jenius yang eksentrik, dalam memimpin pusat trauma di rumah sakit universitas.',
     image: '/The Trauma code Heroes on call.jpg',
     color: 'from-teal-400 via-green-400 to-emerald-500',
   },
   {
     title: '🌊🐚 Moana 2',
-    description:
-      'Moana kembali berlayar menjelajahi lautan luas dalam petualangan berani melintasi samudra yang penuh misteri.',
+    description: 'Moana kembali berlayar menjelajahi lautan luas dalam petualangan berani melintasi samudra yang penuh misteri.',
     image: '/moana.jpg',
     color: 'from-emerald-300 via-teal-500 to-cyan-500',
   },
   {
     title: '🔪 Mercy For None',
-    description:
-      'Seorang mantan gangster legendaris kembali ke dunia bawah tanah untuk membalas dendam atas kematian misterius adiknya.',
+    description: 'Seorang mantan gangster legendaris kembali ke dunia bawah tanah untuk membalas dendam atas kematian misterius adiknya.',
     image: '/Mercy For None poster.jpg',
     color: 'from-green-900 via-emerald-700 to-green-500',
   },
@@ -75,11 +69,15 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="py-24 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-950 via-slate-950 to-black overflow-hidden relative"
+      className="py-24 transition-colors duration-500 relative overflow-hidden
+        /* LIGHT MODE: Putih dengan gradasi emerald tipis */
+        bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-50 via-slate-50 to-white 
+        /* DARK MODE: Tetap seperti desain awal kamu */
+        dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] dark:from-emerald-950 dark:via-slate-950 dark:to-black"
     >
-      {/* Decorative Background Glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/10 blur-[120px] rounded-full" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-500/10 blur-[120px] rounded-full" />
+      {/* Decorative Background Glows - Adaptif */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-400/10 dark:bg-emerald-500/10 blur-[120px] rounded-full" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-400/10 dark:bg-green-500/10 blur-[120px] rounded-full" />
 
       <div className="container mx-auto px-6 relative z-10">
         
@@ -91,10 +89,11 @@ export default function ProjectsSection() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <span className="text-emerald-400 font-medium tracking-widest uppercase text-sm">Curated Collection</span>
-          <h2 className="text-4xl md:text-6xl font-extrabold text-white mt-3 tracking-tight">
-            My Ultimate <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-lime-300">Watch</span> 🍿
+          <span className="text-emerald-600 dark:text-emerald-400 font-bold tracking-widest uppercase text-sm">Curated Collection</span>
+          <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mt-3 tracking-tight">
+            My Ultimate <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500 dark:from-emerald-400 dark:to-lime-300">Watch</span> 🍿
           </h2>
+          <div className="w-24 h-1.5 bg-emerald-500 mx-auto mt-4 rounded-full" />
         </motion.div>
 
         {/* CAROUSEL */}
@@ -108,15 +107,19 @@ export default function ProjectsSection() {
                 >
                   <motion.div 
                     whileHover={{ y: -10 }}
-                    className="relative p-6 rounded-3xl bg-emerald-950/20 border border-emerald-500/10 backdrop-blur-md overflow-hidden group"
+                    className="relative p-6 rounded-3xl transition-all duration-300 overflow-hidden group
+                      /* LIGHT: Putih bersih, border soft */
+                      bg-white/70 border border-slate-200 shadow-xl shadow-slate-200/50 
+                      /* DARK: Sesuai tema awal kamu */
+                      dark:bg-emerald-950/20 dark:border-emerald-500/10 dark:shadow-emerald-900/20 dark:backdrop-blur-md"
                   >
                     {/* Inner Glow Effect */}
                     <div className={`absolute -inset-2 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500`} />
 
                     <div className="relative">
                       {/* IMAGE CONTAINER */}
-                      <div className={`relative p-[2px] rounded-2xl bg-gradient-to-b ${project.color} overflow-hidden shadow-2xl shadow-emerald-900/20`}>
-                        <div className="aspect-[2/3] w-full rounded-2xl overflow-hidden bg-slate-900">
+                      <div className={`relative p-[2px] rounded-2xl bg-gradient-to-b ${project.color} overflow-hidden shadow-2xl`}>
+                        <div className="aspect-[2/3] w-full rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-900">
                           <img
                             src={project.image}
                             alt={project.title}
@@ -133,10 +136,10 @@ export default function ProjectsSection() {
 
                       {/* TEXT CONTENT */}
                       <div className="mt-6">
-                        <h3 className="font-bold text-2xl text-emerald-50 text-shadow-sm">
+                        <h3 className="font-bold text-2xl text-slate-900 dark:text-emerald-50">
                           {project.title}
                         </h3>
-                        <p className="text-emerald-100/60 mt-3 text-sm leading-relaxed line-clamp-3">
+                        <p className="text-slate-600 dark:text-emerald-100/60 mt-3 text-sm leading-relaxed line-clamp-3">
                           {project.description}
                         </p>
                       </div>
@@ -156,7 +159,11 @@ export default function ProjectsSection() {
               onClick={scrollPrev}
               variant="outline"
               size="icon"
-              className="rounded-full border-emerald-500/30 bg-emerald-950/50 text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all shadow-lg"
+              className="rounded-full transition-all shadow-lg
+                /* LIGHT */
+                border-emerald-200 bg-white text-emerald-600 hover:bg-emerald-500 hover:text-white
+                /* DARK */
+                dark:border-emerald-500/30 dark:bg-emerald-950/50 dark:text-emerald-400 dark:hover:bg-emerald-500 dark:hover:text-white"
             >
               <ChevronLeft className="w-6 h-6" />
             </Button>
@@ -164,7 +171,11 @@ export default function ProjectsSection() {
               onClick={scrollNext}
               variant="outline"
               size="icon"
-              className="rounded-full border-emerald-500/30 bg-emerald-950/50 text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all shadow-lg"
+              className="rounded-full transition-all shadow-lg
+                /* LIGHT */
+                border-emerald-200 bg-white text-emerald-600 hover:bg-emerald-500 hover:text-white
+                /* DARK */
+                dark:border-emerald-500/30 dark:bg-emerald-950/50 dark:text-emerald-400 dark:hover:bg-emerald-500 dark:hover:text-white"
             >
               <ChevronRight className="w-6 h-6" />
             </Button>

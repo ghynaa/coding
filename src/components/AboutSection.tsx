@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Video, Coffee, Rocket, ChevronDown, Sparkles, GraduationCap, Target } from 'lucide-react';
 
+// Jika foto ada di folder src/assets, aktifkan import di bawah ini:
+// import MyProfilePic from '../assets/foto-ghyna.jpg'; 
+
 const STATS = [
-  // { icon: Code2, value: '50+', label: 'Projects Selesai' },
   { icon: Video, value: '5+', label: 'Video Konten' },
-  // { icon: Coffee, value: '100+', label: 'Cangkir Matcha' },
-  { icon: Rocket, value: '3+', label: 'Tahun Pengalaman' },
+  { icon: Rocket, value: '3+', label: 'Tahun Pengalaman ' },
 ];
 
 const ACCORDION_DATA = [
@@ -19,8 +20,8 @@ const ACCORDION_DATA = [
   {
     id: 'vision',
     icon: <Target className="w-5 h-5" />,
-    title: "Visi & Fokus Teknologi",
-    content: "Membangun solusi web modern dengan React. Visi saya adalah menyatukan keindahan desain dengan fungsi yang bermanfaat bagi masyarakat luas."
+    title: "Visi",
+    content: "Membangun solusi web modern dengan React. Menyatukan keindahan desain dengan fungsi yang bermanfaat bagi masyarakat luas."
   }
 ];
 
@@ -59,11 +60,20 @@ export default function AboutSection() {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="aspect-square rounded-2xl overflow-hidden glass shadow-card bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                <span className="text-8xl group-hover:scale-110 transition-transform duration-500">👨‍💻</span>
+              {/* Frame Foto */}
+              <div className="aspect-square rounded-2xl overflow-hidden glass shadow-card bg-gradient-to-br from-primary/20 to-accent/20 relative">
+                <img 
+                  src="/ghyna.jpeg" // GANTI DENGAN PATH FOTO KAMU
+                  alt="Ghyna Tsifastya"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Overlay Efek Halus */}
+                <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors duration-500" />
               </div>
-              <div className="absolute -bottom-6 -right-6 p-4 glass rounded-xl shadow-card">
-                <p className="font-display font-bold text-2xl text-gradient">9+ Tahun</p>
+
+              {/* Badge Pengalaman */}
+              <div className="absolute -bottom-6 -right-6 p-4 glass rounded-xl shadow-card border border-white/20">
+                <p className="font-display font-bold text-2xl text-primary">9+ Tahun</p>
                 <p className="text-sm text-muted-foreground font-medium">Pengalaman belajar</p>
               </div>
             </motion.div>
@@ -99,8 +109,8 @@ export default function AboutSection() {
                 Future Web Developer <span className="inline-block animate-bounce">🚀</span>
               </h3>
               <p className="text-muted-foreground leading-relaxed text-lg">
-                Hi, I’m <strong className="text-foreground">Ghyna Tsifastya</strong> 🙆🏻‍♀️ Saya lahir di Banda Aceh pada tanggal 12 Januari 2010, saya seorang pelajar di 
-                <span className="text-primary font-medium"> MAN 1 Banda Aceh,</span> saat ini saya berada di kelas persiapan kedinasan, untuk membentuk karakter dan kemampuan saya, agar nantinya saya bisa masuk ke sekolah lanjutan impian saya. 
+                Hi, I’m <strong className="text-foreground">Ghyna Tsifastya</strong> 🙆🏻‍♀️ Saya lahir di Banda Aceh pada tanggal 12 Januari 2010. Saya seorang pelajar di 
+                <span className="text-primary font-medium"> MAN 1 Banda Aceh.</span> Saat ini saya berada di kelas persiapan kedinasan untuk membentuk karakter dan kemampuan saya agar nantinya bisa masuk ke sekolah lanjutan impian saya. 
               </p>
             </motion.div>
 

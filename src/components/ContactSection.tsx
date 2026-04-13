@@ -45,8 +45,8 @@ export default function ContactSection() {
   const [formData, setFormData] = useState<ContactFormData>({
     name: 'ghyna tsifastya',
     email: 'ghynatsifastya@gmail.com',
-    subject: 'tugas coding',
-    message: 'pusinggg, tapi seru kalo paham',
+    subject: '',
+    message: '',
   });
 
   // Perbaikan tipe State Errors agar aman saat build
@@ -134,10 +134,9 @@ export default function ContactSection() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-4">Mari Berkolaborasi!</h3>
+              <h3 className="text-2xl font-bold mb-4">"Say hello to your next favorite collaborator!🌸</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Punya project menarik atau ingin berkolaborasi? Jangan ragu untuk 
-                menghubungi saya. Saya selalu terbuka untuk diskusi project baru atau ide kreatif.
+                Kalau kamu lagi cari temen diskusi yang seru atau butuh sentuhan kreatif buat project kamu, I'm only one message away✨.
               </p>
             </div>
 
