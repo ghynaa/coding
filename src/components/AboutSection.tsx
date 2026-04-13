@@ -6,10 +6,10 @@ import { Code2, Video, Coffee, Rocket, ChevronDown, Sparkles, GraduationCap, Tar
 // import MyProfilePic from '../assets/foto-ghyna.jpg'; 
 
 const STATS = [
-  { icon: Video, value: '5+', label: 'Video Konten' },
-  { icon: Rocket, value: '3+', label: 'Tahun Pengalaman ' },
+  // { icon: Video, value: '5+', label: 'Video Konten' },
+  { icon: Rocket, value: '1', label: 'Project Completed' },
+  { icon: Coffee, value: '5ooo+', label: 'Matcha 🍵' },
 ];
-
 const ACCORDION_DATA = [
   {
     id: 'edu',
